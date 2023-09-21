@@ -8,9 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FractionTest {
 
     Fraction fraction;
+    Fraction fraction1;
+    Fraction fraction2;
     @BeforeEach
     void createFraction() {
         fraction = new Fraction(1, 2);
+        fraction1 = new Fraction(3, 53);
+        fraction2 = new Fraction(27, 31);
     }
     @Test
     void testGetNumerator() {
@@ -39,6 +43,35 @@ public class FractionTest {
     @Test
     void testDecimal() {
         assertEquals(0.5, fraction.decimal());
+    }
+    @Test
+    void testisProper() {
+        assertTrue(fraction.isProper());
+    }
+    @Test
+    void testisImproper() {
+        assertTrue(new Fraction(2,1).isImproper());
+    }
+    @Test
+    void testisEquivalent() {
+        assertTrue(fraction.isEquivalent(new Fraction(3, 6)));
+    }
+    @Test
+    void testSimplifyFraction() {
+        fraction1.simplifyFraction();
+        assertEquals(fraction, fraction1);
+    }
+    @Test
+    void testAdd() {
+        assertEquals(new Fraction(1524, 1643), fraction1.add(fraction2));
+    }
+    @Test
+    void testMultiply() {
+        assertEquals(new Fraction(81, 1643), fraction1.multiply(fraction2));
+    }
+    @Test
+    void testDivide() {
+        assertEquals(new Fraction(31, 477), fraction1.divide(fraction2));
     }
     @Test
     void testToString() {
