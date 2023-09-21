@@ -15,5 +15,11 @@ public class Searches {
                 .flatMap(user -> user.getFractions().stream())
                 .reduce(Fraction::add).orElse(null);
     }
+    public Fraction findHighestFraction() {
+        return new UsersDatabase().findAll()
+                .flatMap(user -> user.getFractions().stream())
+                .filter(fraction -> fraction.getDenominator() != 0)
+                .max(Fraction::compareTo).orElse(null);
+    }
 
 }
