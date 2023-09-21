@@ -9,5 +9,11 @@ public class Searches {
                         .anyMatch(Fraction::isImproper))
                 .map(User::getName);
     }
+    public Fraction findFractionAdditionByUserId(String id) {
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getId().equals(id))
+                .flatMap(user -> user.getFractions().stream())
+                .reduce(Fraction::add).orElse(null);
+    }
 
 }

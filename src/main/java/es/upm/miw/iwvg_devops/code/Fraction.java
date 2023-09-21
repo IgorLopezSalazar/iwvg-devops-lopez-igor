@@ -78,16 +78,18 @@ public class Fraction {
         return answer;
     }
     public void simplifyFraction() {
-        int temp;
-        int a = numerator;
-        int b = denominator;
-        while(a != 0){
-            temp = b % a;
-            b = a;
-            a = temp;
+        if (denominator != 0) {
+            int temp;
+            int a = numerator;
+            int b = denominator;
+            while (a != 0) {
+                temp = b % a;
+                b = a;
+                a = temp;
+            }
+            numerator /= b;
+            denominator /= b;
         }
-        numerator /= b;
-        denominator /= b;
     }
     public Fraction multiply(Fraction fraction){
         int newNumerator = numerator * fraction.getNumerator();

@@ -14,4 +14,8 @@ class SearchesTest {
                 .collect(Collectors.toList()));
     }
 
+    @Test
+    void testFindFractionAdditionByUserId() {
+        assertEquals(new Fraction(3, 1), new Searches().findFractionAdditionByUserId("1"));
+    }
 }
