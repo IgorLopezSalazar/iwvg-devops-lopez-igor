@@ -56,7 +56,6 @@ public class UserTest {
     }
     @Test
     void testAddFraction() {
-        mockFraction = new Fraction();
         user.addFraction(mockFraction);
         assertIterableEquals(List.of(mockFraction), user.getFractions());
     }
