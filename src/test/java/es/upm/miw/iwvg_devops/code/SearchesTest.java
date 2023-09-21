@@ -22,4 +22,9 @@ class SearchesTest {
     void testFindHighestFraction() {
         assertEquals(new Fraction(2, 1), new Searches().findHighestFraction());
     }
+    @Test
+    void testFindDecimalFractionByNegativeSignFraction() {
+        assertEquals(List.of(-0.2, -0.5, -0.0), new Searches().findDecimalFractionByNegativeSignFraction()
+                .toList());
+    }
 }
