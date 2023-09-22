@@ -18,7 +18,7 @@ public class Searches {
     public Fraction findHighestFraction() {
         return new UsersDatabase().findAll()
                 .flatMap(user -> user.getFractions().stream())
-                .filter(fraction -> fraction.getDenominator() != 0)
+                .filter(frac -> frac.getDenominator() != 0)
                 .max(Fraction::compareTo).orElse(null);
     }
     public Stream<Double> findDecimalFractionByNegativeSignFraction() {
